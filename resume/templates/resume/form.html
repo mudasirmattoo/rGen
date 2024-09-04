@@ -1,0 +1,478 @@
+{% extends 'resume/header.html' %} 
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #animated-text {
+        font-size: 3em;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .fade-in {
+        opacity: 1;
+      }
+
+      .fade-out {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="home" class="mx-auto w-1/2 py-20">
+      <h1
+        class="text-violet-600 text-3xl md:text-6xl font-extrabold text-right"
+      >
+        Build Your <br /><span id="animated-text" class="text-right"
+          >Resume</span
+        >
+      </h1>
+      <br />
+    </div>
+    <form method="POST" id="form">
+      {% csrf_token %}
+      <h1
+        class="font-semibold md:font-bold text-4xl md:text-7xl py-10 text-center text-violet-600"
+      >
+        Register Here
+      </h1>
+      <div class="flex flex-col justify-center items-center">
+        <div class="md:w-2/4 mx-auto form-page active">
+          <h1
+            class="text-xl md:text-4xl font-semibold text-zinc-400 text-center my-10"
+          >
+            Personal Information
+          </h1>
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          /><br />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          /><br />
+
+          <input
+          type="number"
+          name="phone"
+
+          placeholder="Contact Number with country code"
+          class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+        /><br />
+
+          <input
+            type="text"
+            name="linkedin"
+            placeholder="Linkedin Profile"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          /><br />
+
+          <textarea
+            type="text"
+            name="objective"
+            placeholder="Career Objective"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+
+    
+
+          <div class="flex justify-center my-10">
+            <button
+              type="button"
+              class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded next-btn"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="md:w-2/4 mx-auto form-page hidden">
+          <h1
+            class="text-xl md:text-4xl font-semibold text-zinc-400 text-center my-10"
+          >
+            Educational Information
+          </h1>
+
+          <input
+            type="text"
+            name="high"
+            placeholder="High School"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+          type="number"
+          name="htime"
+          placeholder="High School Passing Year"
+          class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+        />
+        <br />
+          <input
+            type="number"
+            min="0"
+            max="100"
+            step="0.1"
+            name="highp"
+            placeholder="High School Percentage/GPA"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="higher"
+            placeholder="Senior Secondary"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+          type="text"
+          name="stime"
+          placeholder="Senior Secondary Passing Year"
+          class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+        />
+        <br />
+          <input
+            type="number"
+            min="0"
+            max="100"   
+            step="0.1"
+            name="higherp"
+            placeholder="Senior Secondary Percentage/GPA"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            name="college"
+            placeholder="College/Univ Name"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="degree"
+            placeholder="Degree"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+          type="text"
+          name="ctime"
+          placeholder="College Timeline e.g(2021-2025)"
+          class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+        />
+        <br />
+          <input
+            type="number"
+            min="0"
+            max="10"
+            step="0.01"
+            name="cgpa"
+            placeholder="Current CGPA/ Percentage"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+
+          <div class="flex justify-around my-10">
+            <button
+              type="button"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded prev-btn"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded next-btn"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="md:w-2/4 mx-auto form-page hidden">
+          <h1
+            class="text-xl md:text-4xl font-semibold text-zinc-400 text-center my-10"
+          >
+            Work Experience
+          </h1>
+
+          <input
+            type="text"
+            name="work1"
+            placeholder="Work Experience I (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="work1r"
+            placeholder="Work I Timeline"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="work1d"
+            placeholder="Work Description I"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+          <input
+            type="text"
+            name="work2"
+            placeholder="Work Experience II (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="work2r"
+            placeholder="Work II Timeline"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="work2d"
+            placeholder="Work Description II"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+
+          <input
+            type="text"
+            name="work3"
+            placeholder="Work Experience III (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="work3r"
+            placeholder="Work III Timleine"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="work3d"
+            placeholder="Work Description III"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+
+          <div class="flex justify-around my-10">
+            <button
+              type="button"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded prev-btn"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded next-btn"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="md:w-2/4 mx-auto form-page hidden">
+          <h1
+            class="text-xl md:text-4xl font-semibold text-zinc-400 text-center my-10"
+          >
+            Projects
+          </h1>
+
+          <input
+            type="text"
+            name="proj1"
+            placeholder="Project I (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="proj1d"
+            placeholder="Project Description I"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+          <input
+            type="text"
+            name="proj2"
+            placeholder="Project  II (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="proj2d"
+            placeholder="Project Description II"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+
+          <input
+            type="text"
+            name="proj3"
+            placeholder="Project  III (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-xl md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <textarea
+            type="text"
+            name="proj3d"
+            placeholder="Project Description III"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-xl md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+
+          <div class="flex justify-around my-10">
+            <button
+              type="button"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded prev-btn"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded next-btn"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="md:w-2/4 mx-auto form-page hidden">
+          <h1
+            class="text-xl md:text-4xl font-semibold text-zinc-400 text-center my-10"
+          >
+            Others
+          </h1>
+
+          <textarea
+            type="text"
+            placeholder="Skills"
+            name="skills"
+            maxlength="300"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          ></textarea
+          ><br />
+          <input
+            type="text"
+            name="cert1"
+            placeholder="Certificate I (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+
+          <input
+            type="text"
+            name="cert2"
+            placeholder="Certificate  II (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+
+          <input
+            type="text"
+            name="ach1"
+            placeholder="Achievement  I (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+          <input
+            type="text"
+            name="ach2"
+            placeholder="Achievement  II (if any)"
+            class="bg-black placeholder-zinc-500 text-slate-100 border border-violet-600 text-center rounded-lg text-md md:text-xl my-5 py-1 w-full transition border-color duration-300 hover:border-purple-500"
+          />
+          <br />
+
+          <div class="flex justify-around my-10">
+            <button
+              type="button"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded prev-btn"
+            >
+              Previous
+            </button>
+            <button
+              type="submit"
+              class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      const formPages = document.querySelectorAll(".form-page");
+      const nextButtons = document.querySelectorAll(".next-btn");
+      const prevButtons = document.querySelectorAll(".prev-btn");
+
+      let currentPage = 0;
+
+      function showPage(n) {
+        formPages[currentPage].classList.add("hidden");
+        currentPage = (currentPage + n) % formPages.length;
+        formPages[currentPage].classList.remove("hidden");
+      }
+
+      nextButtons.forEach((btn) =>
+        btn.addEventListener("click", () => showPage(1))
+      );
+      prevButtons.forEach((btn) =>
+        btn.addEventListener("click", () => showPage(-1))
+      );
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const textElement = document.getElementById("animated-text");
+        const textArray = ["Resume", "Career"];
+        let index = 0;
+
+        textElement.textContent = textArray[index];
+        textElement.classList.add("fade-in");
+
+        setInterval(() => {
+          textElement.classList.remove("fade-in");
+          textElement.classList.add("fade-out");
+
+          setTimeout(() => {
+            index = (index + 1) % textArray.length;
+            textElement.textContent = textArray[index];
+
+            if (textArray[index] === "Career") {
+              textElement.classList.remove("text-violet-600");
+              textElement.classList.add("text-amber-600");
+            } else {
+              textElement.classList.remove("text-amber-600");
+              textElement.classList.add("text-violet-600");
+            }
+            textElement.classList.remove("fade-out");
+            textElement.classList.add("fade-in");
+          }, 1000); // Time for fade-out transition
+        }, 1300); // Total time for each cycle (2 seconds display + 1 second fade)
+      });
+    </script>
+    {% endblock %}
+  </body>
+</html>

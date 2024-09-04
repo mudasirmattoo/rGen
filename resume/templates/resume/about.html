@@ -1,0 +1,63 @@
+{% extends 'resume/header.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+</head>
+
+<body>
+    <div class="mt-20" id="about">
+        <div
+            class="flex justify-center mx-auto items-center w-96 h-96 rounded-lg border-4 border-amber-600 overflow-hidden">
+            <img src="{% static 'resume/images/mudasirr.jpg' %}" alt="Image" class="object-cover w-full h-full">
+        </div>
+        <div class="">
+            <h1 class="text-6xl text-center text-amber-600 font-extrabold pt-10 pb-3">Mudasir Mushtaq</h1>
+            <p class="text-lg text-center text-violet-400 hover:text-violet-600 "><a
+                    href="https://mudasirmattoo.github.io/portfolio/" target="_blank">Personal Portfolio link</a></p>
+        </div>
+        <div class="mx-auto w-1/2 text-center">
+            <ul class="text-transparent bg-clip-text bg-gradient-to-r from-violet-800 to-violet-600 flex space-x-24 justify-center my-5">
+                <li><a href="https://www.linkedin.com/in/mudasir-mushtaq/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/mudasirmattoo" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                <li><a href="https://www.instagram.com/mudasirmushtaq_/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://mudasirmattoo.github.io/portfolio/" target="_blank"><span class="material-symbols-outlined">
+                    captive_portal
+                    </span></a></li>
+            </ul>
+            <div class="flex justify-center py-5">
+                <h1 class="border border-violet-600 rounded-tl-2xl rounded-br-2xl p-5 text-zinc-400 text-lg text-center">
+                    <span class="block font-bold">Hello there!</span><br>
+                    <span class="block text-justify">
+                        I'm a final year B.Tech undergrad at Vellore Institute of Technology, Vellore. With a
+                        profound interest in web technology. I specialize in Django, Javascript, and frontend frameworks
+                        like Tailwind CSS. I developed this project by designing it in Tailwind CSS and CSS. The backend was done in Django
+                        with some JavaScript as well. Users can get the resume generated after filling in the details through forms. I have used
+                        <span class="font-bold text-violet-600"><a href="https://pdfcrowd.com/" target="_blank">pdfcrowd</a></span> API for the .png generation.
+                    </span>
+                    <br>
+                    <span class="block font-bold">Connect me on my socials above</span>
+                </h1>
+            </div>
+        </div>
+        
+        </div>
+
+</body>
+
+</html>
+{% endblock %}
