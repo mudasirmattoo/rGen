@@ -1,4 +1,4 @@
-# rGen
+# rGen (Resume Generator)
 
 
 Clone the Repository.
